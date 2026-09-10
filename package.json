@@ -1,0 +1,23 @@
+{
+  "name": "betting-hub",
+  "version": "1.0.0",
+  "description": "CB Betting Hub - Daily winning tips",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codykeys10/betting-hub.git"
+  },
+  "keywords": ["betting", "tips", "sports"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codykeys10/betting-hub/issues"
+  },
+  "homepage": "https://github.com/codykeys10/betting-hub#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
