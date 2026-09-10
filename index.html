@@ -471,12 +471,8 @@
     // Countdown Timer Script
     function getTargetTime() {
       let now = new Date();
-      // Inapanga muda kuwa Saa 1:30 Usiku (19:30)
-      let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 45, 0);
-      if (now > target) {
-        target.setDate(target.getDate() + 1);
-      }
-      return target;
+      // Weka masaa na dakika za leo hapa (Mfano: 19, 30 ni Saa 1:30 Usiku)
+      return new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 30, 0);
     }
 
     let countDownDate = getTargetTime().getTime();
@@ -485,23 +481,25 @@
       let now = new Date().getTime();
       let distance = countDownDate - now;
 
-      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      hours = hours < 10 ? "0" + hours : hours;
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-
-      document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s";
-
-      if (distance < 0) {
+      // 1. Kama muda umeshapita (Mechi zishaanza)
+      if (distance <= 0) {
         clearInterval(timerFunction);
-        document.getElementById("countdown").innerHTML = "ZIMESHANZA!";
-        document.getElementById("countdown").style.color = "#ef4444";
+        document.getElementById("countdown").innerHTML = "ZIMESHAANZA!";
+        document.getElementById("countdown").style.color = "#ef4444"; // Rangi nyekundu
+      } 
+      // 2. Kama muda bado haujafika (Inahesabu kurudi nyuma)
+      else {
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s";
       }
     }, 1000);
-
     loadData();
   </script>
 </body>
