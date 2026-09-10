@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CB BETTING HUB</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
+  <style>
     :root {
       --bg-color: #070b19;
       --card-bg: rgba(22, 31, 61, 0.7);
@@ -101,13 +101,56 @@
       box-shadow: 0 0 10px var(--accent-red);
     }
 
-    /* Container Imewanuka Kujaza Kioo Vizuri */
+    /* Container Full Width Feel */
     .container {
       width: 100%;
-      max-width: 600px; /* Imetanuka kutoka 480px */
+      max-width: 600px;
       margin: 0 auto;
-      padding: 16px 12px; /* Margins za pembeni zimepungua ili kadi zitanuke */
+      padding: 16px 12px;
       flex: 1;
+    }
+
+    /* Timer Container (Imekaa peke yake) */
+    .timer-container {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .timer-label {
+      font-size: 13px;
+      color: var(--text-sub);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .timer-label i {
+      color: #ff4757;
+      animation: pulse 1.5s infinite;
+    }
+
+    .timer-digits {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 12px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      border: 1px solid rgba(0, 242, 254, 0.2);
     }
 
     .section-title {
@@ -126,7 +169,7 @@
       color: var(--accent-cyan);
     }
 
-    /* Bet Cards Zimetanuka */
+    /* Bet Cards UI */
     .bet-card {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
@@ -173,7 +216,6 @@
       font-weight: 500;
     }
 
-    /* Fixing Booking Code Spacing */
     .code-box {
       background: rgba(7, 11, 25, 0.85);
       border: 1px dashed rgba(0, 242, 254, 0.4);
@@ -297,7 +339,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
-
 </head>
 <body>
 
@@ -309,27 +350,38 @@
   </header>
 
   <div class="container">
-    <!-- Mikeka ya Leo -->
+    
+    <!-- COUNTDOWN TIMER (JUU PEKE YAKE) -->
+    <div class="timer-container">
+      <div class="timer-label">
+        <i class="fa-solid fa-clock"></i>
+        <span>Mechi za kwanza zinaanza:</span>
+      </div>
+      <div class="timer-digits" id="countdown">00h 00m 00s</div>
+    </div>
+
+    <!-- MIKEKA YA LEO -->
     <div class="section-title"><i class="fa-solid fa-ticket"></i> Mikeka ya Leo</div>
     <div id="bets-container">
       <p style="text-align: center; color: var(--text-sub);">Inapakua mikeka...</p>
     </div>
 
-    <!-- History -->
+    <!-- HISTORY -->
     <div class="section-title" style="margin-top: 35px;"><i class="fa-solid fa-clock-rotate-left"></i> History ya Mikeka</div>
     <div id="history-container">
       <p style="text-align: center; color: var(--text-sub);">Inapakua history...</p>
     </div>
+
   </div>
 
-  <!-- Footer Section -->
+  <!-- Footer -->
   <footer>
     <span class="footer-badge">🔞 STRICTLY 18+ ONLY</span>
     <p class="footer-text">
       <strong>Kanusho:</strong> CB BETTING HUB haitoi huduma za kubet bali inatoa tu ushauri na utabiri wa michezo (Betting Tips). Pesa unayotumia kubet ni uamuzi wako binafsi. Tumia pesa unayoweza kumudu kuipoteza (Bet Responsibly).
     </p>
     <div class="copyright">
-      &copy; 2026 CB TECH TECHNOLOGY. All Rights Reserved.
+      &copy; 2026 CB TECHNOLOGY TANZANIA. All Rights Reserved.
     </div>
   </footer>
 
@@ -339,7 +391,7 @@
         const response = await fetch('data.json');
         const data = await response.json();
 
-        // 1. Render Vidoti vya Status (Siku 10 Zilizopita)
+        // 1. Render Status Dots
         const statusDotsContainer = document.getElementById('status-dots');
         statusDotsContainer.innerHTML = '';
         if (data.status) {
@@ -415,6 +467,40 @@
       navigator.clipboard.writeText(code);
       alert('✅ Booking Code Imekopiwa: ' + code);
     }
+
+    // Countdown Timer Script
+    function getTargetTime() {
+      let now = new Date();
+      // Inapanga muda kuwa Saa 1:30 Usiku (19:30)
+      let target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 19, 45, 0);
+      if (now > target) {
+        target.setDate(target.getDate() + 1);
+      }
+      return target;
+    }
+
+    let countDownDate = getTargetTime().getTime();
+
+    let timerFunction = setInterval(function() {
+      let now = new Date().getTime();
+      let distance = countDownDate - now;
+
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      document.getElementById("countdown").innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+
+      if (distance < 0) {
+        clearInterval(timerFunction);
+        document.getElementById("countdown").innerHTML = "ZIMESHANZA!";
+        document.getElementById("countdown").style.color = "#ef4444";
+      }
+    }, 1000);
 
     loadData();
   </script>
