@@ -4,139 +4,270 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CB BETTING HUB</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #070b19;
+      --card-bg: rgba(22, 31, 61, 0.7);
+      --accent-cyan: #00f2fe;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --text-main: #ffffff;
+      --text-sub: #94a3b8;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
+
     body {
-      background-color: #0b132b;
-      color: #ffffff;
-      padding-bottom: 40px;
+      background: radial-gradient(circle at top, #111b3d 0%, #070b19 100%);
+      color: var(--text-main);
+      padding-bottom: 50px;
+      min-height: 100vh;
     }
+
     header {
       text-align: center;
-      padding: 25px 15px;
-      background: #1c2541;
-      border-bottom: 2px solid #00f2fe;
+      padding: 30px 15px 20px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    header h1 {
-      color: #00f2fe;
-      font-size: 24px;
-      margin-bottom: 5px;
-    }
+
     .badge-daily {
-      background: #ff4757;
+      background: linear-gradient(135deg, #ff4757, #ff6b81);
       color: #fff;
       font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 800;
+      letter-spacing: 1px;
+      box-shadow: 0 0 12px rgba(255, 71, 87, 0.5);
+      display: inline-block;
+      margin-bottom: 8px;
+      animation: pulse 2s infinite;
     }
+
+    header h1 {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-top: 6px;
+    }
+
+    /* Track Record Dots Section */
+    .status-container {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .dot:hover {
+      transform: scale(1.3);
+    }
+
+    .dot-w {
+      background: var(--accent-green);
+      box-shadow: 0 0 10px var(--accent-green);
+    }
+
+    .dot-l {
+      background: var(--accent-red);
+      box-shadow: 0 0 10px var(--accent-red);
+    }
+
     .container {
-      max-width: 500px;
+      max-width: 480px;
       margin: 0 auto;
-      padding: 15px;
+      padding: 20px 15px;
     }
+
     .section-title {
-      font-size: 18px;
-      margin: 20px 0 10px 0;
+      font-size: 16px;
+      font-weight: 700;
+      margin: 25px 0 15px 0;
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: #e0e6ed;
+      gap: 10px;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
     }
+
+    .section-title i {
+      color: var(--accent-cyan);
+    }
+
+    /* Bet Cards UI */
     .bet-card {
-      background: #1c2541;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      border: 1px solid #3a506b;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.6s ease forwards;
     }
+
+    .bet-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
+    }
+
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
+
     .company-badge {
-      background: #00f2fe;
-      color: #000;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 12px;
-    }
-    .odds-badge {
-      background: #10b981;
-      color: #fff;
-      font-weight: bold;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 12px;
-    }
-    .code-box {
-      background: #0b132b;
-      border: 1px dashed #00f2fe;
-      padding: 10px;
+      background: rgba(0, 242, 254, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid var(--accent-cyan);
+      font-weight: 700;
+      padding: 5px 12px;
       border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .odds-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .bet-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .code-box {
+      background: rgba(7, 11, 25, 0.8);
+      border: 1px dashed rgba(0, 242, 254, 0.4);
+      padding: 12px 15px;
+      border-radius: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 12px 0;
+      margin-bottom: 15px;
     }
+
     .code-text {
-      font-size: 18px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      color: #fff;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
     }
+
     .copy-btn {
-      background: #00f2fe;
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
       color: #000;
       border: none;
-      padding: 10px;
+      padding: 12px;
       width: 100%;
-      border-radius: 8px;
-      font-weight: bold;
+      border-radius: 10px;
+      font-weight: 800;
       cursor: pointer;
       font-size: 14px;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
     }
+
+    .copy-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* History UI */
     .history-card {
-      background: #1c2541;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-left: 5px solid #10b981;
+      border-left: 4px solid var(--accent-green);
+      transition: transform 0.2s ease;
+      animation: fadeInUp 0.5s ease forwards;
     }
+
     .history-card.lost {
-      border-left-color: #ef4444;
+      border-left-color: var(--accent-red);
     }
+
     .result-tag {
-      font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 6px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 8px;
       font-size: 12px;
-      color: #000;
+      letter-spacing: 0.5px;
     }
+
     .result-won {
-      background: #10b981;
-      color: #fff;
+      background: rgba(16, 185, 129, 0.2);
+      color: var(--accent-green);
+      border: 1px solid var(--accent-green);
     }
+
     .result-lost {
-      background: #ef4444;
-      color: #fff;
+      background: rgba(239, 68, 68, 0.2);
+      color: var(--accent-red);
+      border: 1px solid var(--accent-red);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -145,19 +276,21 @@
   <header>
     <span class="badge-daily">🔥 DAILY WINNING TIPS</span>
     <h1>CB BETTING HUB</h1>
+    <div class="subtitle">Matokeo ya Siku 10 Zilizopita (Win / Loss)</div>
+    <div class="status-container" id="status-dots"></div>
   </header>
 
   <div class="container">
-    <!-- Sehemu ya Mikeka ya Leo -->
-    <div class="section-title">📺 Mikeka ya Leo</div>
+    <!-- Mikeka ya Leo -->
+    <div class="section-title"><i class="fa-solid fa-ticket"></i> Mikeka ya Leo</div>
     <div id="bets-container">
-      <p style="text-align: center; color: #94a3b8;">Inapakua mikeka...</p>
+      <p style="text-align: center; color: var(--text-sub);">Inapakua mikeka...</p>
     </div>
 
-    <!-- Sehemu ya History -->
-    <div class="section-title" style="margin-top: 30px;">📜 History ya Mikeka Iliyopita</div>
+    <!-- History -->
+    <div class="section-title" style="margin-top: 35px;"><i class="fa-solid fa-clock-rotate-left"></i> History ya Mikeka</div>
     <div id="history-container">
-      <p style="text-align: center; color: #94a3b8;">Inapakua history...</p>
+      <p style="text-align: center; color: var(--text-sub);">Inapakua history...</p>
     </div>
   </div>
 
@@ -167,7 +300,18 @@
         const response = await fetch('data.json');
         const data = await response.json();
 
-        // Render Mikeka ya Leo
+        // 1. Render Vidoti vya Status (Siku 10 Zilizopita)
+        const statusDotsContainer = document.getElementById('status-dots');
+        statusDotsContainer.innerHTML = '';
+        if (data.status) {
+          data.status.forEach(st => {
+            const dot = document.createElement('span');
+            dot.className = `dot ${st.toUpperCase() === 'W' ? 'dot-w' : 'dot-l'}`;
+            statusDotsContainer.appendChild(dot);
+          });
+        }
+
+        // 2. Render Mikeka ya Leo
         const betsContainer = document.getElementById('bets-container');
         betsContainer.innerHTML = '';
 
@@ -179,23 +323,23 @@
                   <span class="company-badge">${bet.company}</span>
                   <span class="odds-badge">Total Odds: ${bet.odds}</span>
                 </div>
-                <div style="font-size: 14px; color: #cbd5e1; margin-bottom: 8px;">${bet.desc}</div>
+                <div class="bet-desc">${bet.desc}</div>
                 <div class="code-box">
-                  <span style="color: #94a3b8; font-size: 12px;">Booking Code:</span>
+                  <span style="color: var(--text-sub); font-size: 12px;">Booking Code:</span>
                   <span class="code-text">${bet.code}</span>
                 </div>
-                <button class="copy-btn" onclick="navigator.clipboard.writeText('${bet.code}'); alert('Code ime-kopiwa: ${bet.code}');">
-                  📋 Copy Code
+                <button class="copy-btn" onclick="copyCode('${bet.code}')">
+                  <i class="fa-regular fa-copy"></i> Copy Code
                 </button>
               </div>
             `;
             betsContainer.innerHTML += card;
           });
         } else {
-          betsContainer.innerHTML = '<p style="color: #94a3b8;">Hakuna mkeka uliowekwa kwa leo.</p>';
+          betsContainer.innerHTML = '<p style="color: var(--text-sub); text-align: center;">Hakuna mkeka wa leo kwa sasa.</p>';
         }
 
-        // Render History
+        // 3. Render History
         const historyContainer = document.getElementById('history-container');
         historyContainer.innerHTML = '';
 
@@ -208,9 +352,9 @@
             const historyCard = `
               <div class="history-card ${cardClass}">
                 <div>
-                  <small style="color: #94a3b8;">${item.date} • ${item.company}</small>
-                  <div style="color: #fff; font-weight: bold; font-size: 14px; margin: 3px 0;">${item.desc}</div>
-                  <small style="color: #00f2fe; font-weight: bold;">Odds: ${item.odds}</small>
+                  <small style="color: var(--text-sub);">${item.date} • ${item.company}</small>
+                  <div style="color: #fff; font-weight: 700; font-size: 14px; margin: 3px 0;">${item.desc}</div>
+                  <small style="color: var(--accent-cyan); font-weight: 700;">Odds: ${item.odds}</small>
                 </div>
                 <div>
                   <span class="result-tag ${tagClass}">${item.result}</span>
@@ -220,12 +364,17 @@
             historyContainer.innerHTML += historyCard;
           });
         } else {
-          historyContainer.innerHTML = '<p style="color: #94a3b8;">Hakuna history kwa sasa.</p>';
+          historyContainer.innerHTML = '<p style="color: var(--text-sub); text-align: center;">Hakuna history iliyohifadhiwa.</p>';
         }
 
       } catch (error) {
         console.error('Error loading data:', error);
       }
+    }
+
+    function copyCode(code) {
+      navigator.clipboard.writeText(code);
+      alert('✅ Booking Code Imekopiwa: ' + code);
     }
 
     loadData();
