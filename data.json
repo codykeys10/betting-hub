@@ -8,5 +8,21 @@
       "desc": "Mkeka wa Leo",
       "img": ""
     }
+  ],
+  "history": [
+    {
+      "date": "09 Sep 2026",
+      "company": "1WIN",
+      "odds": "52+",
+      "result": "WON",
+      "desc": "Normal"
+    },
+    {
+      "date": "08 Sep 2026",
+      "company": "1WIN",
+      "odds": "12.00",
+      "result": "LOST",
+      "desc": " Combo Ticket"
+    }
   ]
 }

@@ -1,203 +1,234 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CB BETTING HUB</title>
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
-    <style>
-        :root {
-            --primary: #00f2fe;
-            --bg-dark: #0b0f19;
-            --card-bg: rgba(23, 32, 54, 0.7);
-            --win-color: #00e676;
-            --loss-color: #ff5252;
-            --text: #ffffff;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text); padding-bottom: 40px; }
-
-        .glass-header {
-            background: rgba(15, 23, 42, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            padding: 25px 15px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        header h1 { font-size: 24px; color: var(--primary); margin-bottom: 4px; }
-        header p { font-size: 12px; color: #94a3b8; margin-bottom: 15px; }
-
-        .status-tracker { display: flex; justify-content: center; gap: 8px; }
-        .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
-        .dot.win { background-color: var(--win-color); box-shadow: 0 0 8px var(--win-color); }
-        .dot.loss { background-color: var(--loss-color); box-shadow: 0 0 8px var(--loss-color); }
-
-        .container { max-width: 480px; margin: 20px auto; padding: 0 15px; }
-        .container h2 { font-size: 16px; margin-bottom: 15px; color: #cbd5e1; }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .card-img-box { width: 100%; max-height: 200px; overflow: hidden; }
-        .card-img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .card-body { padding: 15px; }
-
-        .card-header-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .company-tag {
-            background: rgba(0, 242, 254, 0.15);
-            color: var(--primary);
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        .odds-tag {
-            background: rgba(0, 230, 118, 0.15);
-            color: var(--win-color);
-            padding: 4px 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        .code-box {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 10px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 12px 0;
-            border: 1px dashed rgba(255, 255, 255, 0.2);
-        }
-
-        .code-text { font-family: monospace; font-size: 16px; font-weight: bold; color: #fff; }
-
-        .btn-copy {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: none;
-            background: var(--primary);
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CB BETTING HUB</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #0b132b;
+      color: #ffffff;
+      padding-bottom: 40px;
+    }
+    header {
+      text-align: center;
+      padding: 25px 15px;
+      background: #1c2541;
+      border-bottom: 2px solid #00f2fe;
+    }
+    header h1 {
+      color: #00f2fe;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    .badge-daily {
+      background: #ff4757;
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+    .section-title {
+      font-size: 18px;
+      margin: 20px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #e0e6ed;
+    }
+    .bet-card {
+      background: #1c2541;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      border: 1px solid #3a506b;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .company-badge {
+      background: #00f2fe;
+      color: #000;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .odds-badge {
+      background: #10b981;
+      color: #fff;
+      font-weight: bold;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .code-box {
+      background: #0b132b;
+      border: 1px dashed #00f2fe;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 12px 0;
+    }
+    .code-text {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .copy-btn {
+      background: #00f2fe;
+      color: #000;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    .history-card {
+      background: #1c2541;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 5px solid #10b981;
+    }
+    .history-card.lost {
+      border-left-color: #ef4444;
+    }
+    .result-tag {
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #000;
+    }
+    .result-won {
+      background: #10b981;
+      color: #fff;
+    }
+    .result-lost {
+      background: #ef4444;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
-    <header class="glass-header">
-        <div class="badge"><i class="fa-solid fa-fire"></i> DAILY WINNING TIPS</div>
-        <h1>CB BETTING HUB</h1>
-        <p>Matokeo ya Siku 10 Zilizopita (Win / Loss)</p>
-        <div class="status-tracker" id="statusTracker"></div>
-    </header>
+  <header>
+    <span class="badge-daily">🔥 DAILY WINNING TIPS</span>
+    <h1>CB BETTING HUB</h1>
+  </header>
 
-    <main class="container">
-        <h2><i class="fa-solid fa-ticket"></i> Mikeka ya Leo (Edit mkeka kwa uelewa wako)</h2>
-        <div id="betsContainer"></div>
-    </main>
+  <div class="container">
+    <!-- Sehemu ya Mikeka ya Leo -->
+    <div class="section-title">📺 Mikeka ya Leo</div>
+    <div id="bets-container">
+      <p style="text-align: center; color: #94a3b8;">Inapakua mikeka...</p>
+    </div>
 
-    <script>
-        async function loadData() {
-            try {
-                const response = await fetch('data.json');
-                const data = await response.json();
-                
-                renderStatus(data.status);
-                renderBets(data.bets);
-            } catch (error) {
-                console.error("Haitawezekana kupakia data:", error);
-            }
+    <!-- Sehemu ya History -->
+    <div class="section-title" style="margin-top: 30px;">📜 History ya Mikeka Iliyopita</div>
+    <div id="history-container">
+      <p style="text-align: center; color: #94a3b8;">Inapakua history...</p>
+    </div>
+  </div>
+
+  <script>
+    async function loadData() {
+      try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+
+        // Render Mikeka ya Leo
+        const betsContainer = document.getElementById('bets-container');
+        betsContainer.innerHTML = '';
+
+        if (data.bets && data.bets.length > 0) {
+          data.bets.forEach(bet => {
+            const card = `
+              <div class="bet-card">
+                <div class="card-header">
+                  <span class="company-badge">${bet.company}</span>
+                  <span class="odds-badge">Total Odds: ${bet.odds}</span>
+                </div>
+                <div style="font-size: 14px; color: #cbd5e1; margin-bottom: 8px;">${bet.desc}</div>
+                <div class="code-box">
+                  <span style="color: #94a3b8; font-size: 12px;">Booking Code:</span>
+                  <span class="code-text">${bet.code}</span>
+                </div>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('${bet.code}'); alert('Code ime-kopiwa: ${bet.code}');">
+                  📋 Copy Code
+                </button>
+              </div>
+            `;
+            betsContainer.innerHTML += card;
+          });
+        } else {
+          betsContainer.innerHTML = '<p style="color: #94a3b8;">Hakuna mkeka uliowekwa kwa leo.</p>';
         }
 
-        function renderStatus(statusList) {
-            const tracker = document.getElementById('statusTracker');
-            if(!tracker || !statusList) return;
-            tracker.innerHTML = '';
-            statusList.forEach(status => {
-                const dot = document.createElement('span');
-                dot.className = `dot ${status.toUpperCase() === 'W' ? 'win' : 'loss'}`;
-                tracker.appendChild(dot);
-            });
+        // Render History
+        const historyContainer = document.getElementById('history-container');
+        historyContainer.innerHTML = '';
+
+        if (data.history && data.history.length > 0) {
+          data.history.forEach(item => {
+            const isWin = item.result.toUpperCase() === 'WON';
+            const cardClass = isWin ? '' : 'lost';
+            const tagClass = isWin ? 'result-won' : 'result-lost';
+
+            const historyCard = `
+              <div class="history-card ${cardClass}">
+                <div>
+                  <small style="color: #94a3b8;">${item.date} • ${item.company}</small>
+                  <div style="color: #fff; font-weight: bold; font-size: 14px; margin: 3px 0;">${item.desc}</div>
+                  <small style="color: #00f2fe; font-weight: bold;">Odds: ${item.odds}</small>
+                </div>
+                <div>
+                  <span class="result-tag ${tagClass}">${item.result}</span>
+                </div>
+              </div>
+            `;
+            historyContainer.innerHTML += historyCard;
+          });
+        } else {
+          historyContainer.innerHTML = '<p style="color: #94a3b8;">Hakuna history kwa sasa.</p>';
         }
 
-        function renderBets(betsList) {
-            const container = document.getElementById('betsContainer');
-            if(!container) return;
-            container.innerHTML = '';
+      } catch (error) {
+        console.error('Error loading data:', error);
+      }
+    }
 
-            if(!betsList || betsList.length === 0) {
-                container.innerHTML = `<p style="text-align:center; color:#64748b; margin-top:20px;">Hakuna mkeka uliopostiwa leo.</p>`;
-                return;
-            }
-
-            betsList.forEach(bet => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    ${bet.img ? `<div class="card-img-box"><img src="${bet.img}" alt="Mkeka"></div>` : ''}
-                    <div class="card-body">
-                        <div class="card-header-info">
-                            <span class="company-tag">${bet.company}</span>
-                            <span class="odds-tag">Total Odds: ${bet.odds}</span>
-                        </div>
-                        <p style="font-size:13px; color:#cbd5e1; margin-bottom:8px;">${bet.desc}</p>
-                        <div class="code-box">
-                            <span>Booking Code:</span>
-                            <span class="code-text">${bet.code}</span>
-                        </div>
-                        <button type="button" class="btn-copy" onclick="copyCode('${bet.code}')">
-                            <i class="fa-regular fa-copy"></i> Copy Code
-                        </button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function copyCode(text) {
-            navigator.clipboard.writeText(text);
-        }
-
-        document.addEventListener("DOMContentLoaded", loadData);
-    </script>
+    loadData();
+  </script>
 </body>
 </html>
