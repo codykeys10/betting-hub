@@ -1,0 +1,12 @@
+{
+  "status": ["W", "W", "L", "W", "W", "W", "L", "W", "W", "W"],
+  "bets": [
+    {
+      "company": "SportyBet",
+      "odds": "4.50",
+      "code": "BET12345",
+      "desc": "Mkeka wa Uhakika wa Leo",
+      "img": ""
+    }
+  ]
+}
