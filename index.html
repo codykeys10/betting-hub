@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CB BETTING HUB</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <style>
+    <style>
     :root {
       --bg-color: #070b19;
       --card-bg: rgba(22, 31, 61, 0.7);
@@ -26,13 +26,15 @@
     body {
       background: radial-gradient(circle at top, #111b3d 0%, #070b19 100%);
       color: var(--text-main);
-      padding-bottom: 50px;
+      padding-bottom: 20px;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
       text-align: center;
-      padding: 30px 15px 20px;
+      padding: 25px 12px 18px;
       background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(0, 242, 254, 0.2);
@@ -59,9 +61,9 @@
 
     header h1 {
       color: #fff;
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -89,10 +91,6 @@
       transition: transform 0.3s ease;
     }
 
-    .dot:hover {
-      transform: scale(1.3);
-    }
-
     .dot-w {
       background: var(--accent-green);
       box-shadow: 0 0 10px var(--accent-green);
@@ -103,16 +101,19 @@
       box-shadow: 0 0 10px var(--accent-red);
     }
 
+    /* Container Imewanuka Kujaza Kioo Vizuri */
     .container {
-      max-width: 480px;
+      width: 100%;
+      max-width: 600px; /* Imetanuka kutoka 480px */
       margin: 0 auto;
-      padding: 20px 15px;
+      padding: 16px 12px; /* Margins za pembeni zimepungua ili kadi zitanuke */
+      flex: 1;
     }
 
     .section-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      margin: 25px 0 15px 0;
+      margin: 20px 4px 12px 4px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -125,23 +126,16 @@
       color: var(--accent-cyan);
     }
 
-    /* Bet Cards UI */
+    /* Bet Cards Zimetanuka */
     .bet-card {
       background: var(--card-bg);
       backdrop-filter: blur(10px);
       border-radius: 16px;
-      padding: 18px;
-      margin-bottom: 20px;
+      padding: 18px 15px;
+      margin-bottom: 18px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: fadeInUp 0.6s ease forwards;
-    }
-
-    .bet-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0, 242, 254, 0.4);
-      box-shadow: 0 12px 30px rgba(0, 242, 254, 0.15);
+      animation: fadeInUp 0.5s ease forwards;
     }
 
     .card-header {
@@ -156,7 +150,7 @@
       color: var(--accent-cyan);
       border: 1px solid var(--accent-cyan);
       font-weight: 700;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 8px;
       font-size: 13px;
     }
@@ -166,7 +160,7 @@
       color: var(--accent-green);
       border: 1px solid var(--accent-green);
       font-weight: 700;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 8px;
       font-size: 13px;
     }
@@ -176,32 +170,35 @@
       color: #cbd5e1;
       margin-bottom: 15px;
       line-height: 1.4;
+      font-weight: 500;
     }
 
+    /* Fixing Booking Code Spacing */
     .code-box {
-      background: rgba(7, 11, 25, 0.8);
+      background: rgba(7, 11, 25, 0.85);
       border: 1px dashed rgba(0, 242, 254, 0.4);
-      padding: 12px 15px;
-      border-radius: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
+      gap: 10px;
     }
 
     .code-text {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 900;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       color: #ffffff;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+      word-break: break-all;
     }
 
     .copy-btn {
       background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
       color: #000;
       border: none;
-      padding: 12px;
+      padding: 13px;
       width: 100%;
       border-radius: 10px;
       font-weight: 800;
@@ -211,12 +208,11 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      transition: all 0.2s ease;
       box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
     }
 
     .copy-btn:active {
-      transform: scale(0.97);
+      transform: scale(0.98);
     }
 
     /* History UI */
@@ -230,7 +226,6 @@
       justify-content: space-between;
       align-items: center;
       border-left: 4px solid var(--accent-green);
-      transition: transform 0.2s ease;
       animation: fadeInUp 0.5s ease forwards;
     }
 
@@ -243,7 +238,6 @@
       padding: 5px 12px;
       border-radius: 8px;
       font-size: 12px;
-      letter-spacing: 0.5px;
     }
 
     .result-won {
@@ -258,7 +252,40 @@
       border: 1px solid var(--accent-red);
     }
 
-    /* Animations */
+    footer {
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 20px 15px;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .footer-badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+      border: 1px solid var(--accent-red);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.5;
+      margin: 0 auto 12px auto;
+    }
+
+    .copyright {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 10px;
+    }
+
     @keyframes pulse {
       0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
       70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
@@ -266,10 +293,11 @@
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+
 </head>
 <body>
 
@@ -293,6 +321,17 @@
       <p style="text-align: center; color: var(--text-sub);">Inapakua history...</p>
     </div>
   </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <span class="footer-badge">🔞 STRICTLY 18+ ONLY</span>
+    <p class="footer-text">
+      <strong>Kanusho:</strong> CB BETTING HUB haitoi huduma za kubet bali inatoa tu ushauri na utabiri wa michezo (Betting Tips). Pesa unayotumia kubet ni uamuzi wako binafsi. Tumia pesa unayoweza kumudu kuipoteza (Bet Responsibly).
+    </p>
+    <div class="copyright">
+      &copy; 2026 CB TECH TECHNOLOGY. All Rights Reserved.
+    </div>
+  </footer>
 
   <script>
     async function loadData() {
