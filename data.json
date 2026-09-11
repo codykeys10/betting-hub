@@ -1,28 +1,28 @@
 {
-  "status": ["W", "W", "L", "W", "W", "W", "L", "W", "L", "W"],
+  "status": ["W", "L", "W", "W", "W", "L", "W", "L", "W", "L"],
   "bets": [
     {
       "company": "1WIN",
-      "odds": "10+",
-      "code": "VijeYVad",
+      "odds": "...",
+      "code": "pending...",
       "desc": "Mkeka wa Leo",
       "img": ""
     }
   ],
   "history": [
     {
+      "date": "10 Sep 2026",
+      "company": "1WIN",
+      "odds": "10",
+      "result": "LOST",
+      "desc": "1cut"
+    },
+    {
       "date": "09 Sep 2026",
       "company": "1WIN",
       "odds": "52+",
       "result": "WON",
       "desc": "Normal"
-    },
-    {
-      "date": "08 Sep 2026",
-      "company": "1WIN",
-      "odds": "12.00",
-      "result": "LOST",
-      "desc": " Combo Ticket"
     }
   ]
 }
